@@ -1,0 +1,247 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.si{
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.empty{
+    width: 90%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: orange;
+
+}
+
+#cartContainer{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: baseline;
+}
+
+#cartContainer>div{
+    width: 100%;
+    
+}
+.cart-item{
+    padding: 20px;
+    width:initial;
+    border: 1px solid rgb(207, 203, 203);
+    margin: 10px;
+    display: flex;
+    justify-content: baseline;
+}
+
+#cart-content>p,#cart-content>h3, #cart-content>div{
+    margin-bottom: 10px;
+}
+
+#qty{
+    margin-left: 5px;
+    position: absolute;
+    z-index: 0;
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+#promo_alert{
+    display: block;
+    color: orange;
+    font-size: smaller;
+}
+
+select{
+    margin-top: 10px;  
+    z-index: -1;
+    padding: 10px;
+}
+
+
+#cBtn{
+    display: flex;
+    width: max-content;
+    margin-top: 50px;
+    text-decoration-line:underline;
+}
+
+#cBtn>div{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#cBtn>div:hover{
+    color: orange;
+}
+
+#cartCalc>div{
+    padding: 10px; 
+    border: 1px solid rgb(207, 203, 203);
+    position: fixed;
+    top: 70px;
+    max-width: 270px;
+    width: 100%;
+    box-sizing: inherit;
+    display: block;
+}
+
+#cartCalc{
+    margin-left: 10px;
+    min-width: 300px;
+    position: relative;
+    width: 300px;
+    max-width: 300px;
+    box-sizing: inherit;  
+    
+}
+
+#discount{
+    color: red;
+}
+
+img{
+    max-height: 260px;
+    max-width: 260px;
+    min-height: 260px;
+    min-width: 260px;
+    margin-right: 20px;
+}
+
+
+
+#cartCalc>div>div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    
+}
+
+#cartCalc>div>div:last-child>button{
+
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(51, 50, 50);
+    color: white;
+    font-size: large;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+#promocode+button{
+
+    background-color: green;
+    color: white;
+    padding:3px 15px 3px 15px ;
+    border: 0px;
+    border-radius: 5px;
+}
+
+#promocode{
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+   
+@media all and (min-width: 451px) and (max-width: 800px){
+    #cartContainer{
+        display: block;
+        width: 100%;
+    }
+
+    img{
+    max-height: 180px;
+    max-width: 180px;
+    min-height: 180px;
+    min-width: 180px;
+    }
+    
+
+    #cartCalc>div{
+        padding: 10px; 
+        border: 1px solid rgb(207, 203, 203);
+        position:unset;
+        top:auto;
+        max-width: 90%;
+        width: 90%;
+        box-sizing: inherit;
+        display: block;
+        margin: auto;
+        
+    }
+
+    #cartCalc{
+        margin-left: auto;
+        margin: auto;
+        min-width: 100%;
+        position: unset;
+        width: 100%;
+        box-sizing: inherit;  
+        display: block;
+        margin-bottom: 300px;
+       
+        
+    }
+
+
+}
+
+@media all and (min-width: 100px) and (max-width: 450px){
+
+    *{
+        font-size: small;
+    }
+
+    #cartContainer{
+        display: block;
+        width: 100%;
+    }
+
+    img{
+    max-height: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    min-width: 120px;
+    }
+    
+
+    #cartCalc>div{
+        padding: 10px; 
+        border: 1px solid rgb(207, 203, 203);
+        position:unset;
+        top:auto;
+        max-width: 90%;
+        width: 90%;
+        box-sizing: inherit;
+        display: block;
+        margin: auto;
+        
+    }
+
+    #cartCalc{
+        margin-left: auto;
+        margin: auto;
+        min-width: 100%;
+        position: unset;
+        width: 100%;
+        box-sizing: inherit;  
+        display: block;
+        margin-bottom: 400px;
+       
+        
+    }
+
+
+
+}

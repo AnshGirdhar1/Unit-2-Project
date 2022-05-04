@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="cartpage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="si"><h1 class="sk">Shopping Cart</h1></div>
+    <div id="cartContainer">
+        <div id="product">
+            
+        </div>        
+    
+        <div id="cartCalc">
+            <div>
+                <div>
+                    <div id="Items">1 Items:</div>
+                    <div id="cartINR">INR 8045.00</div>
+                </div>
+                <div >
+                    <input type="text" id="promocode" placeholder="Enter Promocode"/>
+                    <button onclick="promocode()">Apply</button>
+                    
+                </div>
+                <div>
+                    <p id="promo_alert"></p>
+                </div>
+                <div>
+
+                    <div>Promotional Savings:</div>
+                    <div id="discount">0.00</div>
+                </div>
+                <div>
+                    <div>Subtotal After Discounts:</div>
+                    <div id="subTotal_price">8045.00</div>
+                </div>
+                <div>
+                    <div><h3>Your Total:</h3></div>
+                    <div id="total_price"><h3>INR 8045.00</h3></div>
+                </div>
+
+                <div><button>Check Out</button></div>
+                </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script src="cartpage.js"></script>

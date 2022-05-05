@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bb8a3557a3.js" crossorigin="anonymous"></script>
+    <title>Furniture</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* h1{
+            margin-bottom: 80px;
+            text-align: center;
+            font-size: 60px;
+
+        } */
+       #container{
+           width: 80%;
+           /* border: 1px solid red; */
+           margin: 20%;
+           display: grid;
+           margin-top: 80px;
+           grid-template-columns: repeat(4,1fr);
+           grid-template-rows: repeat(3,350px);
+           gap: 20px;
+       }
+       #container>div{
+           /* width: 40%; */
+           border: 1px solid;
+           text-align: center;
+       }
+       #content{
+           width: 100%;
+       }
+       #btnDiv{
+           display: flex;
+           justify-content: space-between;
+           /* border: 1px solid; */
+           width: 100%;
+           /* height: 40px; */
+           align-items: center;
+           /* margin-top: -10px; */
+           top: -25px;
+           position: relative;
+           /* padding: 10px; */
+       }
+       button{
+           color: white;
+           background-color: red;
+           border: none;
+           padding: 3px;
+           border-radius: 5px;
+           /* position: absolute; */
+           align-items: flex-end;
+       }
+       button:hover{
+           border: 1px solid;
+           cursor: pointer;
+       }
+       #container h3{
+           font-size: 15px;
+       }
+       #container>div h3+p{
+           color: red;
+           font-size: 20px;
+           text-align: center;
+           font-weight: 600;
+       }
+       #categ{
+           /* text-align: start; */
+           /* background-color: grey; */
+           width: 18%;
+           position: fixed;
+           border: 1px solid;
+           height: 200px;
+           overflow: scroll;
+       }
+       #categ h1{
+           margin-bottom: 10px;
+           /* text-align: start; */
+       }
+       select{
+           padding: 5px 15px;
+           margin-bottom: 12px;
+       }
+       #container>div p{
+           color: grey;
+           font-size: 12px;
+           text-align: center;
+           width: 100%;
+           overflow: hidden;
+           margin-top: 10px;
+       }
+      
+    </style>
+</head>
+<body>
+    <!-- navbar will be here -->
+    <nav></nav>
+    <div id="categ">
+        <h1>Categories</h1>
+        <select  id="furn">
+            <option value="--">Furniture</option>
+            <option value="Table">Coffee Table's</option>
+            <option value="Sofa">Sofa</option>
+            <option value="Dinning">Dinning</option>
+            <option value="Chair">Desk Chair</option>
+        </select>
+        <select  id="decor">
+            <option value="--">Decor</option>
+            <option value="mirror">Wall Mirror's</option>
+            <option value="clock">Wall Clock's</option>
+            <option value="blind">Blinds&Shades</option>
+            <option value="canvas">Canvas Art</option>
+        </select>
+        <select  id="kitch">
+            <option value="--">Kitchen</option>
+            <option value="coffee">Coffee Maker</option>
+            <option value="blender">Blender</option>
+            <option value="fryer">Air Fryer</option>
+            <option value="mixer">Mixer</option>
+        </select>
+        <select  id="out">
+            <option value="--">Outdoor</option>
+            <option value="plant">Plant's</option>
+            <option value="cycles">Bycycle's</option>
+            <option value="skating">Skating skooter's</option>
+            <option value="rugs">OutDoor Rug's</option>
+        </select>
+        
+    </div>
+    <div id="container">
+    </div>
+</body>
+</html>
+<script>
+    var proData = JSON.parse(localStorage.getItem("productData"));
+    var div = document.querySelector("#container");
+    var addCartArr=JSON.parse(localStorage.getItem("cartList"))||[];
+    var favListArr=JSON.parse(localStorage.getItem("favList"))||[];
+    proData.forEach(function(el){
+        if(el.categ==="furniture"||el.categ=="--"){
+                // console.log(el)
+
+            var box = document.createElement("div");
+            var image = document.createElement("img");
+            image.setAttribute("id","content")
+            image.setAttribute("src", el.proImg);
+            var name = document.createElement("h3");
+            name.innerText=el.proName;
+            var price = document.createElement("p")
+            price.innerText=`INR ${el.price} `;
+            var descreption = document.createElement("p");
+            descreption.innerText=el.descreption;
+            var btnDiv = document.createElement("div");
+            btnDiv.setAttribute("id","btnDiv");
+            var addCart = document.createElement("button")
+            addCart.innerText="Add To Cart";
+            addCart.addEventListener("click",function(){
+            addCartFun(el);
+            })
+            var favList = document.createElement("button")
+            favList.innerText="Fav";
+            favList.addEventListener("click",function(){
+                favListFun(el);
+            })
+            btnDiv.append(addCart,favList)
+            box.append(image,btnDiv,name,price,descreption)
+            div.append(box)
+        }
+        })
+        function addCartFun(el){
+            addCartArr.push(el);
+            localStorage.setItem("cartList",JSON.stringify(addCartArr));
+        };
+        function favListFun(el){
+            favListArr.push(el);
+            localStorage.setItem("favList",JSON.stringify(favListArr));
+        }
+</script>

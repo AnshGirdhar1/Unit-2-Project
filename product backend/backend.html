@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend For Admin's</title>
+</head>
+<style>
+    *{
+        text-align: center;
+        margin: 0;
+    }
+    body{
+        margin-top: 50px;
+        /* text-align: center; */
+    }
+    #container{
+        width: 70%;
+        margin: auto;
+        /* border: 1px solid; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    form>h4{
+       margin-top: 10px;
+       margin-bottom: 5px;
+    }
+</style>
+<body>
+    <div id="container">
+    <form id="form">
+        <select  id="category">
+            <option value="--">Choose Page</option>
+            <option value="furniture">Furniture Page</option>
+            <option value="decor">Decor Page</option>
+            <option value="kitchen">Kitchen Page</option>
+            <option value="outdoor">Outdoor Page</option>
+        </select>
+        <h4>Image</h4>
+        <input type="text" id="img" placeholder="Enter Product Image">
+        <h4>name</h4>
+        <input type="text" id="name" placeholder="Enter Product name">
+        <h4>proID</h4>
+        <input type="text" id="proId" placeholder="Enter Product Unique ID">
+        <h4>price</h4>
+        <input type="number" id="prc" placeholder="Enter Product Price">
+        <h4>Description</h4>
+        <input type="text" id="desc" placeholder="Enter Product Description">
+        <input type="submit" value="Add Product">
+    </form>
+</div>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit", SaveProduct);
+    var productArr = JSON.parse(localStorage.getItem("productData"))||[];
+    function SaveProduct(){
+        event.preventDefault();
+
+        var productData = {
+            categ:form.category.value,
+            proImg:form.img.value,
+            price:form.prc.value,
+            descreption:form.desc.value,
+            proName: form.name.value,
+            productID: form.proId.value,
+        }
+        if(productData.categ!=="" && productData.proImg!=="" && productData.price!=="" &&productData.descreption!=="" &&productData.proName!=="" &&productData.productID!=="" ){
+        productArr.push(productData);
+        // console.log(productArr);
+        localStorage.setItem("productData",JSON.stringify(productArr))
+        document.querySelector("#form").reset();
+        }else{
+            alert("Fill all details")
+        }
+    };
+</script>

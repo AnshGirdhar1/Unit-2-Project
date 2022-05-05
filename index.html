@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overstock.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bb8a3557a3.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'poppins', sans-serif;
+            margin:0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height:auto;
+        }
+
+       #discount-popup {
+           background-color: #000;
+           padding:10px 0;
+           color:#fff;
+           display: flex;
+           justify-content: center;
+           position: relative;
+       }
+
+       strong {
+           padding:0 5px;
+       }
+
+       i.fa-xmark {
+           font-size: 25px;
+           color:#fff;
+           position: absolute;
+           top:8px;
+           right:20px;
+           cursor: pointer;
+       }
+
+       #select-country {
+           width:100%;
+           background-color: #f9fafb;
+           padding:10px;
+           border: 1px solid rgb(194, 193, 193);
+       }
+
+       #select-country span {
+           font-size: 13px;
+           color:gray;
+       }
+
+       #select-country select {
+           width:50px;
+           border:0px;
+           background-color: transparent;
+           cursor: pointer;
+       }
+
+       #select-country select option {
+           font-family: 'poppins', sans-serif;
+       }
+
+       #header {
+           width:95%;
+           display: flex;
+           margin:auto;
+           padding:25px 0 15px 0;
+           border-bottom: 1px solid rgb(194, 193, 193);
+       }
+
+       #logo img {
+           width:35px;
+           vertical-align: top;
+       }
+
+       #logo h2 {
+           font-size: 30px;
+           font-weight: 400;
+           display: inline-block;
+           margin-top:-5px;
+           margin-bottom:0;
+       }
+
+       #search-bar {
+           width:70%;
+           padding-left:20px;
+       }
+
+       #search-bar input {
+           width:95%;
+           padding:10px;
+           border-top-left-radius: 5px;
+           border-bottom-left-radius: 5px;
+           background-color: #f9fafb;
+           border: 1px solid rgb(194, 193, 193);
+           margin:0;
+       }
+
+       #search-bar input:focus {
+           outline:none;
+       }
+
+       #search-bar input::placeholder {
+           font-family: 'poppins', sans-serif;
+       }
+
+       #search-bar i {
+           width:5%;
+           background-color: orangered;
+           padding:11px 15px;
+           color:#fff;
+           vertical-align: middle;
+           margin-left:-6px;
+           cursor:pointer;
+           border-top-right-radius: 5px;
+           border-bottom-right-radius: 5px;
+       }
+
+        #menu ul {
+            width:100%;
+            margin:0;
+            padding:0;
+        }
+
+       #menu ul li {
+           display: inline-block;
+           padding-left:25px;
+           text-align: center;
+       }
+
+       #menu ul li a {
+           color: #020202;
+           text-decoration: none;
+       }
+
+       #menu ul li a i {
+           font-size: 25px;
+       }
+
+       #menu ul li a span {
+           font-size: 13px;
+           display: block;
+           text-decoration: none;
+       }
+
+       #product-pages {
+           width:100%;
+           display:flex;
+           justify-content: center;
+       }
+
+       #product-pages ul li {
+           display: inline-block;
+           padding-right:40px;
+       }
+
+       #product-pages ul li a {
+           color:#000;
+           text-decoration: none;
+           font-weight: 400;
+       }
+
+       #product-pages ul li a:hover {
+           border-bottom: 3px solid orangered;
+       }
+
+       #banner {
+           width:100%;
+           padding:70px 0;
+           background: url("https://ak1.ostkcdn.com/img/mxc/04292022-HP-A1-INTL-1400x550.jpg") right bottom no-repeat;
+           background-size: cover;
+           text-align: center;
+       }
+
+       #banner h2 {
+           font-size: 70px;
+           color:rgb(44, 44, 44);
+           margin:0;
+           margin-bottom:30px;
+           background-color:rgb(221, 255, 244);
+           display: inline-block;
+           font-weight: 600;
+           padding:0px 20px;
+           height:60px;
+           line-height: 55px;
+       }
+
+        #banner h1 {
+            margin:0;
+            margin-bottom:30px;
+            color:rgb(44, 44, 44);
+            background-color:rgb(221, 255, 244);
+            display: inline-block;
+            font-weight: 800;
+            font-size: 100px;
+            height:80px;
+            line-height: 55px;
+        }
+
+       #banner h3 {
+           font-size: 25px;
+           margin:0px;
+           margin-bottom:120px;
+           background-color:#fff;
+           display: inline-block;
+           font-weight: 500;
+           padding:0 30px; 
+       }
+
+       #banner a {
+            color:#000;
+            background-color: rgb(221, 255, 244);
+            padding:10px 40px;
+            font-size: 25px;
+            font-weight: 500;
+            display: inline-block;
+       }
+
+       #off-deals {
+           width:95%;
+           margin:auto;
+           text-align: center;
+           padding-bottom:50px;
+       }
+
+       #off-deals h3 {
+           font-size: 35px;
+           font-weight: 600;
+       }
+
+       #deals {
+           width:100%;
+           display:grid;
+           grid-template-columns: repeat(6,1fr);
+           gap:20px;
+       }
+
+       #deals a {
+           color:#000;
+       }
+
+        #deals a div img {
+            background-color: rgb(245, 245, 245);
+        }
+
+        #deals a div h4 {
+            font-weight: 500;
+        }
+
+        #home-decor-banner {
+            width:95%;
+            margin:auto;
+            background: url("https://ak1.ostkcdn.com/img/mxc/04282022_HomeDecorRefresh_Desktopv2.jpg?imwidth=1080") right bottom no-repeat;
+            background-size: cover;
+            text-align:center;
+        }
+
+        #background-shadow {
+            background-color: rgba(0, 0, 0, 0.164);
+            padding:100px 0;
+        }
+
+        #background-shadow h2 {
+            color:#fff;
+            margin:0;
+            margin-bottom:30px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 80px;
+            height:80px;
+            line-height: 55px;
+            margin:0;
+            line-height: 55px;
+        }
+
+        #background-shadow h2 span {
+            color:rgb(221, 255, 244);
+        }
+
+        #background-shadow h3 {
+            color:#fff;
+            font-size: 40px;
+            font-weight: 600;
+            margin:0;
+        }
+
+        #background-shadow a {
+            color:#000;
+            background-color: rgb(221, 255, 244);
+            padding:10px 40px;
+            font-size: 25px;
+            font-weight: 500;
+            display: inline-block;
+            margin-top:90px;
+        }
+
+        #categories {
+            width:95%;
+            margin:auto;
+            text-align: center;
+            padding:30px 0;
+        }
+
+        #categories h3 {
+           font-size: 35px;
+           font-weight: 600;
+        }
+
+        #main-categories {
+            width:100%;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            gap:20px;
+        }
+
+        #main-categories a {
+            color:#000;
+        }
+
+        #main-categories a:nth-child(5)>div {
+            background-color: orangered;
+            font-size: 40px;
+            font-weight: 600;
+            color:#fff;
+            padding:50px 0;
+        }
+
+       .new-collection {
+            width:95%;
+            margin:auto;
+            padding-bottom: 70px;
+        }
+
+       .new-collection h3 {
+            font-size: 35px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+       .collection {
+            width:100%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap:10px;
+        }
+
+       .collection>div {
+            background-color: rgb(246, 246, 246);
+            padding-bottom:20px;
+            cursor: pointer;
+        }
+
+       .collection>div>h3 {
+            text-align: left;
+            margin:0;
+            padding:10px 20px;   
+            font-size: 23px;
+            color:rgb(50, 50, 50)
+        }
+
+       .collection>div>p {
+            padding: 0 20px;
+            margin:0;
+        }
+
+        #furniture-banner {
+            width:95%;
+            margin:auto;
+            background: url("https://ak1.ostkcdn.com/img/mxc/04282022_SpringTimeSlumber_INTL_Desktop.jpg?imwidth=1920") left top no-repeat;
+            margin-bottom:50px;
+        }
+
+        #overlay {
+            width:100%;
+            padding:100px 0 100px 50px;
+            background-color: rgba(0, 0, 0, 0.164);
+        }
+
+        #overlay h2 {
+            color:#fff;
+            font-size: 80px;
+            margin:0;
+            line-height: 90px;
+        }
+
+        #overlay h2.skin {
+            color:rgb(251, 234, 201);
+            margin-bottom: 30px;
+        }
+
+        #overlay a {
+            background-color: rgb(251, 234, 201);
+            padding:10px 40px;
+            font-size: 25px;
+            font-weight: 500;
+            display: inline-block;
+            color:#000;
+        }
+
+        .featured div {
+            text-align: center;
+        }
+
+        .featured div h4 {
+            padding:0 40px;
+            margin:0;
+        }
+
+        .featured div p {
+            padding:0 40px;
+        }
+
+        #rooms-banner {
+            width:95%;
+            margin:auto;
+            background: url("https://ak1.ostkcdn.com/img/mxc/030822-RIUpdate-Dsk.jpg?imwidth=1200") left top no-repeat;
+            background-size: contain;
+            margin-bottom: 50px;
+        }
+
+        #banner-content {
+            width:30%;
+            margin: auto;
+            text-align: center;
+            padding:20px;
+        }
+
+        #banner-content h4{
+            font-size: 25px;
+            margin:0;
+            font-weight: 600;
+        }
+
+        #banner-content h3 {
+            font-size: 32px;
+            margin:0;
+        }
+
+        #banner-content p {
+            font-size: 18px;
+        }
+
+        #banner-content a {
+            background-color: #fff;
+            padding:10px 30px;
+            font-size: 20px;
+            font-weight: 500;
+            display: inline-block;
+            color:#000;
+        }
+
+        .style {
+            grid-template-columns: repeat(3,1fr);
+            gap:20px;
+        }
+
+        .new-collection a.styles {
+            width:13%;
+            margin: auto;
+            background-color: #000;
+            display: block;
+            color:#fff;
+            text-align: center;
+            padding:10px 0;
+            border-radius: 5px;
+            margin-top:30px;
+        }
+
+        .new-styles {
+            border-bottom: 1px solid rgb(194, 193, 193);
+            padding-bottom: 30px;
+        }
+
+        #footer {
+            width:100%;
+            background-color: #545658;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            padding:50px 80px;
+            margin-top:80px;
+        }
+
+        #footer ul li {
+            list-style: none;
+            padding-bottom:20px;
+        }
+
+        #footer ul li a {
+            color:#fff;
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        #footer ul li a.bold {
+            font-weight: 500;
+        }
+
+        #footer-bottom {
+            width:100%;
+            display:flex;
+            background-color: #2f3337;
+            justify-content: space-between;
+            padding:30px 120px;
+        }
+
+        #footer-bottom div span {
+            display:block;
+            color:#fff;
+            font-size:14px;
+        }
+
+        #footer-bottom div ul li {
+            display: inline-block;
+            padding-left:20px;
+        }
+
+        #footer-bottom div ul li a {
+            color:#fff;
+            font-size:14px;
+        }
+
+        @media all and (max-width:767px){
+            #search-bar {
+                width:45%;
+            }
+
+            #search-bar input {
+                width:88%;
+            }
+
+            #search-bar i {
+                width:12%;
+                padding-right:0;
+                padding-left: 0;
+                text-align: center;
+            }
+
+            #deals {
+                grid-template-columns: repeat(3,1fr);
+            }
+
+            #home-decor-banner h2 {
+                font-size: 60px;
+            }
+
+            #home-decor-banner h3 {
+                font-size: 30px;
+            }
+
+            #main-categories {
+                grid-template-columns:repeat(2,1fr) ;
+            }
+
+            #main-categories span{
+                display: block;
+            }
+
+            #main-categories a:nth-child(5)>div {
+            padding:20px 0;
+            font-size: 20px;
+            }
+
+            .new-collection a.styles {
+                width:25%;
+            }
+            .collection {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .collection>div>img {
+                width:100%;
+            }
+
+            #banner-content {
+                width:60%;
+                background-color: #dbedff;
+            }
+
+            #banner-content h4 {
+                font-size: 20px;
+            }
+
+            #banner-content h3 {
+                font-size: 25px;
+            }
+
+            #banner-content p {
+                font-size: 14px;
+            }
+
+            #banner-content a {
+                font-size: 14px;
+            }
+
+            #footer-bottom {
+                display:block;
+            }
+
+            #footer-bottom ul {
+                padding:0;
+            }
+
+            #footer-bottom div ul li{
+                padding-left: 0;
+                padding-right:20px;
+            }
+        }
+
+        @media all and (max-width:480px){
+            #discount-popup {
+                font-size: 11px;
+            }
+
+            #header {
+                display:block;
+                text-align: center;
+            }
+
+            #search-bar {
+                width:100%;
+                padding:30px 0;
+            }
+
+            #menu {
+                justify-content: center;
+            }
+
+            #menu ul li {
+                padding:0;
+            }
+
+            #menu ul li:nth-child(2) {
+                padding:0 40px;
+            }
+
+            #banner h2 {
+                font-size: 50px;
+                line-height: 35px;
+                height:40px;
+            }
+
+            #banner h1 {
+                 font-size: 70px;
+                 line-height: 40px;
+                 height:50px;
+            }
+
+            #banner h3 {
+                font-size: 20px;
+            }
+
+            #deals {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            #home-decor-banner {
+                width:100%;
+            }
+
+            #home-decor-banner h2 {
+                line-height: 70px;
+            }
+
+            #home-decor-banner h3{
+                font-size: 20px;
+                padding-top: 20px;
+            }
+
+            #main-categories {
+                grid-template-columns: 1fr;
+            }
+
+            #furniture-banner {
+                width:100%;
+            }
+
+            .collection {
+                padding-left:10px;
+                padding-right: 10px;
+                gap:20px;
+                grid-template-columns: 1fr;
+            }
+
+            #banner-content {
+                width:100%;
+            }
+
+            .new-collection a.styles {
+                width:40%;
+            }
+
+            #footer{
+                grid-template-columns: repeat(2,1fr);
+                padding:30px;
+            }
+
+            #footer-bottom {
+                padding:30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="discount-popup">
+        Sign up to receive our latest<strong>deals</strong>and get a<strong>10% off coupon</strong> enter email address
+    </div>
+    <i class="fa-solid fa-xmark"></i>
+    <div id="select-country">
+        <span>Ships to :</span>
+        <select>
+            <option>India</option>
+            <option>America</option>
+            <option>Canada</option>
+        </select>
+    </div>
+    <div id="header">
+        <div id="logo">
+        <img src="https://lh3.googleusercontent.com/r1RyQV0Tva6dHjjLQ4xikDyc2uU9OMXxUmnvDM3edGwfBI6tZvDC9XGltno9pH-jkw" alt="img"/>
+        <h2>overstock</h2>
+        </div>
+        <div id="search-bar">
+            <input type="text" placeholder="Search"/>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="#">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Account</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Lists</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                    <span>Cart</span>
+                </a></li>
+            </ul>
+        </div>  
+    </div>
+    <div id="product-pages">
+        <ul>
+            <li><a href="product backend/furniture.html">Furniture</a></li>
+            <li><a href="#">Decor</a></li>
+            <li><a href="#">Kitchen</a></li>
+            <li><a href="#">Outdoor</a></li>
+        </ul>
+    </div>
+    <div id="banner">
+        <h2>spring</h2>
+        <br>
+        <h1>super sale</h1>
+        <br>
+        <h3>Fresh deals to spruce up your space!</h3>
+        <br>    
+        <a href="#">Shop Now</a>
+    </div>
+    <div id="off-deals">
+        <h3>Limited Time Deals</h3>
+        <div id="deals">
+            <a href="#"><div>
+                <img src = "https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_1.svg?imwidth=1920" alt = "img"/>
+                <h4>Select Garden & Patio</h4>
+            </div></a>
+            <a href="#"><div>
+                <img src = "https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_2.svg?imwidth=1920" alt = "img"/>
+                <h4>Select Living Room Furniture</h4>
+            </div></a>
+            <a href="#"><div>
+                <img src = "https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_3.svg?imwidth=1920" alt = "img"/>
+                <h4>Select Dining Room Furniture</h4>
+            </div></a>
+            <a href="#"><div>
+                <img src = "https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_4.svg?imwidth=1920" alt = "img"/>
+                <h4>Select Home Decor</h4>
+            </div></a>
+            <a href="#"><div>
+                <img src = "https://ak1.ostkcdn.com/img/mxc/04292022_V3_HB_DOMESTIC_5.svg?imwidth=1920" alt = "img"/>
+                <h4>Select Bedding & Bath</h4>
+            </div></a>
+            <a href="#"><div>
+                <img src = "https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_6.svg?imwidth=1920" alt = "img"/>
+                <h4>Select Lighting & Ceiling Fans</h4>
+            </div></a>
+        </div>
+    </div>
+    <div id="home-decor-banner">
+        <div id = "background-shadow">
+        <h2>home decor <span>refresh</span></h2>
+        <h3>Save on fresh styles to update your space</h3>
+        <a href="#">Shop Now</a>
+        </div>
+    </div>
+    <div id="categories">
+        <h3>Fresh Finds In Each Category</h3>
+        <div id="main-categories">
+            <a href="#"><div>
+            <img src="https://ak1.ostkcdn.com/img/mxc/11192021-CatSilo-Furniture.png?imwidth=1920" alt = "img"/>
+            <span>Furniture</span>
+            </div></a>
+            <a href="#"><div>
+            <img src="https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Decor.png?imwidth=1920" alt = "img"/>
+            <span>Home Decor</span>
+            </div></a>
+            <a href="#"><div>
+            <img src="https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Kitchen.png?imwidth=1920" alt = "img"/>
+            <span>Kitchen</span>
+            </div></a>
+            <a href="#"><div>
+            <img src="https://ak1.ostkcdn.com/img/mxc/11192021-CatSilo-Outdoor.png?imwidth=1920" alt = "img"/>
+            <span>Outdoor</span>
+            </div></a>
+            <a href="#"><div>
+                shop all deals
+            </div></a>
+        </div>
+    </div>
+    <div class="new-collection">
+        <h3>New Ways to Bring Home Spring</h3>
+        <div class="collection">
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_7.jpg?imwidth=1920" alt="img" />
+                <h3>Ceiling Fans</h3>
+                <p>Keep your space comfy & conditioned all season long with stylish ceiling fans.</p>
+            </div>
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_5.jpg?imwidth=1920" alt="img" />
+                <h3>Washable Rugs</h3>
+                <p>Say goodbye to dirty rug blues with carpets that you can clean in the washer.</p>
+            </div>
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_3.jpg?imwidth=1920" alt="img" />
+                <h3>Wicker Patio Furniture</h3>
+                <p>Save on long-lasting comfort with the natural texture of wicker furniture.</p>
+            </div>
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_4.jpg?imwidth=1920" alt="img" />
+                <h3>Leather Sectionals</h3>
+                <p>Update your living room with the sumptuous style & homegrown comfort of leather.</p>
+            </div>
+        </div>
+    </div>
+    <div id="furniture-banner">
+        <div id="overlay">
+            <h2>spring time</h2>
+            <h2 class="skin">slumber</h2>
+            <a href="#">Shop Now</a>
+        </div>
+    </div>
+    <div class="new-collection">
+        <h3>Overstock Featured Brands</h3>
+        <div class="collection featured">
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/C-Mod_HP_C_Mod_34762650.jpg?imwidth=1920" alt="img" />
+                <h4>Extra 15% off</h4>
+                <p>Select Rugs by Artistic Weavers & More*</p>
+            </div>
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/C-Mod_HP_C_Mod_33517468.jpg?imwidth=1920" alt="img" />
+                <h4>Washable Rugs</h4>
+                <p>Select Mattresses by TempurPedic</p>
+            </div>
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/C-Mod_HP_C_Mod_18977242.jpg?imwidth=1920" alt="img" />
+                <h4>Wicker Patio Furniture</h4>
+                <p>Select Furniture by Flash Furniture*</p>
+            </div>
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/C-Mod_HP_C_Mod_36535383.jpg?imwidth=1920" alt="img" />
+                <h4>Leather Sectionals</h4>
+                <p>Select Bedding by Country Living</p>
+            </div>
+        </div>
+    </div>
+    <div id="rooms-banner">
+        <div id="banner-content">
+        <h4>#overstockstyle</h4>
+        <h3>savings & style in real life</h3>
+        <p>See how others are styling their rooms and score great deals on the look</p>
+        <a href="#">Explore Rooms</a>
+    </div>
+    </div>
+    <div class="new-collection new-styles">
+        <h3>New Ways to Bring Home Spring</h3>
+        <div class="collection style">
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/030822-SBS-Farmhouse.jpg?imwidth=1920" alt="img" />
+                <h3>Farmhouse</h3>
+                <p>Country comforts abound in this fresh take on rustic home decor.</p>
+            </div>
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/030822-SBS-Traditional.jpg?imwidth=1920" alt="img" />
+                <h3>Traditional</h3>
+                <p>Cozy designs, clean and classic, give this style it’s signature appeal.</p>
+            </div>
+            <div>
+                <img src="https://ak1.ostkcdn.com/img/mxc/030822-SBS-MidCenMod.jpg?imwidth=1920" alt="img" />
+                <h3>Mid-Century Modern</h3>
+                <p>Retro meets modern chic in these clean lines and vibrant tones.</p>
+            </div>
+        </div>
+        <a class="styles" href="#">See all styles</a>
+    </div>
+    <div id="footer">
+        <ul>
+            <li><a class="bold" href="#">MY ACCOUNT</a></li>
+            <li><a href="#">Orders & Returns</a></li>
+            <li><a href="#">Email Preferences</a></li>
+            <li><a href="#">Account Settings    </a></li>
+        </ul>
+        <ul>
+            <li><a class="bold" href="#">LET US HELP</a></li>
+            <li><a href="#">Contact Customer Care</a></li>
+            <li><a href="#">Shipping Information</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">International Help</a></li>
+            <li><a href="#">Accessibility</a></li>
+        </ul>
+        <ul>
+            <li><a class="bold" href="#">COMPANY INFORMATION</a></li>
+            <li><a href="#">About Overstock™</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Sell Your Products</a></li>
+            <li><a href="#">Supply Chain Transparency</a></li>
+        </ul>
+        <ul>
+            <li><a class="bold" href="#">MORE WAYS TO SHOP</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">My Account</a></li>
+        </ul>
+    </div>
+    <div id="footer-bottom">
+        <div>
+            <span>© Copyright 2022, Overstock.com®, Inc.</span>
+            <span>799 Coliseum Way Midvale, UT 84047 | 1-800-843-2446</span>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Promotion Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("i").addEventListener("click", popupRemove);
+    function popupRemove(){
+        document.querySelector("#discount-popup").style.display="none";
+        document.querySelector("i").style.display="none";
+    }
+</script>

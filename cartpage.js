@@ -204,5 +204,6 @@ function Delete(ele,index){
 
 console.log(addCartArr)
 
+
 calculate(addCartArr)
 

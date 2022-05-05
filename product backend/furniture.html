@@ -16,7 +16,6 @@
             margin-bottom: 80px;
             text-align: center;
             font-size: 60px;
-
         } */
        #container{
            width: 80%;
@@ -144,8 +143,6 @@
     var favListArr=JSON.parse(localStorage.getItem("favList"))||[];
     proData.forEach(function(el){
         if(el.categ==="furniture"||el.categ=="--"){
-                // console.log(el)
-
             var box = document.createElement("div");
             var image = document.createElement("img");
             image.setAttribute("id","content")

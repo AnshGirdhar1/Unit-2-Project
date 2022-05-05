@@ -1,31 +1,31 @@
-var data = [
-    {
-    proImg: "https://ak1.ostkcdn.com/images/products/is/images/direct/539d42288f85aff7c136e4298b59a18b6626e0c4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Area-Rug.jpg",
-    proName:"SAFAVIEH Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
-    price: "8045",
-    productID: "pro1",
-    description: "A gorgeous upholstered finish, a sleek design, excellent support and easy assembly; what more could you want? The Brookside Tara Upholstered Platform Bed Frame is the perfect statement piece to finish any bedroom."
-    },
-    {
-    proImg: "https://ak1.ostkcdn.com/images/products/is/images/direct/539d42288f85aff7c136e4298b59a18b6626e0c4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Area-Rug.jpg",
-    proName:"Sofa Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
-    price: "5045",
-    productID: "pro2",
-    description: "A gorgeous upholstered finish, a sleek design, excellent support and easy assembly; what more could you want? The Brookside Tara Upholstered Platform Bed Frame is the perfect statement piece to finish any bedroom."
-    },
-    {
-    proImg: "https://ak1.ostkcdn.com/images/products/is/images/direct/539d42288f85aff7c136e4298b59a18b6626e0c4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Area-Rug.jpg",
-    proName:"chair Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
-    price: "10000",
-    productID: "pro3",
-    description: "A gorgeous upholstered finish, a sleek design, excellent support and easy assembly; what more could you want? The Brookside Tara Upholstered Platform Bed Frame is the perfect statement piece to finish any bedroom."
-    },
+// var data = [
+//     {
+//     proImg: "https://ak1.ostkcdn.com/images/products/is/images/direct/539d42288f85aff7c136e4298b59a18b6626e0c4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Area-Rug.jpg",
+//     proName:"SAFAVIEH Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
+//     price: "8045",
+//     productID: "pro1",
+//     description: "A gorgeous upholstered finish, a sleek design, excellent support and easy assembly; what more could you want? The Brookside Tara Upholstered Platform Bed Frame is the perfect statement piece to finish any bedroom."
+//     },
+//     {
+//     proImg: "https://ak1.ostkcdn.com/images/products/is/images/direct/539d42288f85aff7c136e4298b59a18b6626e0c4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Area-Rug.jpg",
+//     proName:"Sofa Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
+//     price: "5045",
+//     productID: "pro2",
+//     description: "A gorgeous upholstered finish, a sleek design, excellent support and easy assembly; what more could you want? The Brookside Tara Upholstered Platform Bed Frame is the perfect statement piece to finish any bedroom."
+//     },
+//     {
+//     proImg: "https://ak1.ostkcdn.com/images/products/is/images/direct/539d42288f85aff7c136e4298b59a18b6626e0c4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Area-Rug.jpg",
+//     proName:"chair Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
+//     price: "10000",
+//     productID: "pro3",
+//     description: "A gorgeous upholstered finish, a sleek design, excellent support and easy assembly; what more could you want? The Brookside Tara Upholstered Platform Bed Frame is the perfect statement piece to finish any bedroom."
+//     },
 
-    ]
+//     ]
 
-    localStorage.setItem("pro-cart",JSON.stringify(data))
+//     localStorage.setItem("pro-cart",JSON.stringify(data))
 
-    var cartLSData = JSON.parse(localStorage.getItem("pro-cart")) || []
+    var cartLSData = JSON.parse(localStorage.getItem("cartList")) || []
 
     var product = document.querySelector("#product")
 

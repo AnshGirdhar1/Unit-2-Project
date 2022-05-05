@@ -426,7 +426,6 @@
         #rooms-banner {
             width:95%;
             margin:auto;
-            height:320px;
             background: url("https://ak1.ostkcdn.com/img/mxc/030822-RIUpdate-Dsk.jpg?imwidth=1200") left top no-repeat;
             background-size: contain;
             margin-bottom: 50px;
@@ -533,24 +532,183 @@
             font-size:14px;
         }
 
-        @media all and (max-width:1325px){
-            #header {
-                justify-content: space-between;
-            }
+        @media all and (max-width:767px){
             #search-bar {
-                width:65%;
+                width:45%;
             }
+
+            #search-bar input {
+                width:88%;
+            }
+
             #search-bar i {
-                padding:11px;
+                width:12%;
+                padding-right:0;
+                padding-left: 0;
+                text-align: center;
             }
+
+            #deals {
+                grid-template-columns: repeat(3,1fr);
+            }
+
+            #home-decor-banner h2 {
+                font-size: 60px;
+            }
+
+            #home-decor-banner h3 {
+                font-size: 30px;
+            }
+
+            #main-categories {
+                grid-template-columns:repeat(2,1fr) ;
+            }
+
+            #main-categories span{
+                display: block;
+            }
+
+            #main-categories a:nth-child(5)>div {
+            padding:20px 0;
+            font-size: 20px;
+            }
+
+            .new-collection a.styles {
+                width:25%;
+            }
+            .collection {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .collection>div>img {
+                width:100%;
+            }
+
             #banner-content {
-                padding:15px 20px;
+                width:60%;
+                background-color: #dbedff;
+            }
+
+            #banner-content h4 {
+                font-size: 20px;
+            }
+
+            #banner-content h3 {
+                font-size: 25px;
+            }
+
+            #banner-content p {
+                font-size: 14px;
+            }
+
+            #banner-content a {
+                font-size: 14px;
+            }
+
+            #footer-bottom {
+                display:block;
+            }
+
+            #footer-bottom ul {
+                padding:0;
+            }
+
+            #footer-bottom div ul li{
+                padding-left: 0;
+                padding-right:20px;
             }
         }
 
-        @media all and (max-width:1325px){
+        @media all and (max-width:480px){
+            #discount-popup {
+                font-size: 11px;
+            }
+
+            #header {
+                display:block;
+                text-align: center;
+            }
+
             #search-bar {
-                width:60%;
+                width:100%;
+                padding:30px 0;
+            }
+
+            #menu {
+                justify-content: center;
+            }
+
+            #menu ul li {
+                padding:0;
+            }
+
+            #menu ul li:nth-child(2) {
+                padding:0 40px;
+            }
+
+            #banner h2 {
+                font-size: 50px;
+                line-height: 35px;
+                height:40px;
+            }
+
+            #banner h1 {
+                 font-size: 70px;
+                 line-height: 40px;
+                 height:50px;
+            }
+
+            #banner h3 {
+                font-size: 20px;
+            }
+
+            #deals {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            #home-decor-banner {
+                width:100%;
+            }
+
+            #home-decor-banner h2 {
+                line-height: 70px;
+            }
+
+            #home-decor-banner h3{
+                font-size: 20px;
+                padding-top: 20px;
+            }
+
+            #main-categories {
+                grid-template-columns: 1fr;
+            }
+
+            #furniture-banner {
+                width:100%;
+            }
+
+            .collection {
+                padding-left:10px;
+                padding-right: 10px;
+                gap:20px;
+                grid-template-columns: 1fr;
+            }
+
+            #banner-content {
+                width:100%;
+            }
+
+            .new-collection a.styles {
+                width:40%;
+            }
+
+            #footer{
+                grid-template-columns: repeat(2,1fr);
+                padding:30px;
+            }
+
+            #footer-bottom {
+                padding:30px;
             }
         }
     </style>
@@ -596,7 +754,7 @@
     </div>
     <div id="product-pages">
         <ul>
-            <li><a href="#">Furniture</a></li>
+            <li><a href="product backend/furniture.html">Furniture</a></li>
             <li><a href="#">Decor</a></li>
             <li><a href="#">Kitchen</a></li>
             <li><a href="#">Outdoor</a></li>

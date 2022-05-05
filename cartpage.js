@@ -25,7 +25,6 @@
 
 //     localStorage.setItem("pro-cart",JSON.stringify(data))
 
-
 var addCartArr = JSON.parse(localStorage.getItem("cartList")) || []
 
 var product = document.querySelector("#product")
@@ -74,26 +73,8 @@ function display(data){
         var product = document.querySelector("#product")
         product.setAttribute("class","empty")
         product.innerText = "Your Cart is Empty"
-
-    var cartLSData = JSON.parse(localStorage.getItem("cartList")) || []
-
-    var product = document.querySelector("#product")
-
-    function promocode(){
-        var promo_code = (document.querySelector("#promocode").value)
-        var promo_up = promo_code.toUpperCase()
-        var promo_text = document.querySelector("#promo_alert")
-        var discount_text = document.querySelector("#discount")
-        var cart_total = (document.querySelector("#cartINR").innerText).trim().split(" ")
-        var cart_total_INR =+ cart_total[1]
-        if(promo_up=="MASAI10"){
-            promo_text.innerText = "Applied Successfully"
-            promo_text.style.color = "green"
-            var discount = (cart_total_INR*10)/100
-            discount_text.innerText = (-discount).toFixed(2)
-            document.querySelector("#subTotal_price").innerText = (cart_total_INR - discount).toFixed(2)
-            document.querySelector("#total_price>h3").innerText = (cart_total_INR - discount).toFixed(2)  
-         }
+        
+    }
     else{
         var product = document.querySelector("#product")
         product.innerHTML = ""

@@ -1,7 +1,10 @@
 
 
         var productData =[
-{"categ":"furniture","proImg":"https://ak1.ostkcdn.com/images/products/is/images/direct/ff5469ce703e23efb418f471cecc41d744159a11/Ergonomic-Office-Chair-with-Lumbar-Support-Back%2C-Adjustable-Headrest.jpg?imwidth=480&impolicy=medium","price":"9546","descreption":"Ergonomic Office Chair with Lumbar Support Back, Adjustable Headrest","proName":"Ergonomic Office Chair ","productID":"pro1"},
+{"categ":"furniture",
+"proImg":"https://ak1.ostkcdn.com/images/products/is/images/direct/ff5469ce703e23efb418f471cecc41d744159a11/Ergonomic-Office-Chair-with-Lumbar-Support-Back%2C-Adjustable-Headrest.jpg?imwidth=480&impolicy=medium",
+"price":"9546","descreption":"Ergonomic Office Chair with Lumbar Support Back, Adjustable Headrest",
+"proName":"Ergonomic Office Chair ","productID":"pro1"},
 {"categ":"furniture","proImg":"https://ak1.ostkcdn.com/images/products/is/images/direct/55f95147744841c1e70e9dce40dafd4d8a7bd1c4/HOME-Office-Chair%2C-Mid-back-Lumbar-Support-Swivel-Computer-Mesh-Chair.jpg?imwidth=480&impolicy=medium","price":"7470","descreption":"HOME Office Chair, Mid-back Lumbar Support Swivel Computer Mesh Chair","proName":"HOME Office Chair","productID":"pro2"},
 {"categ":"furniture","proImg":"https://ak1.ostkcdn.com/images/products/is/images/direct/b08e53c50d7978abf463e3685b0ccbd3011ddf16/Luxe-Combo-Console-Table.jpg?imwidth=480&impolicy=medium","price":"14423","descreption":"Luxe Combo Console Table","proName":"Living Room Table","productID":"pro3"},
 {"categ":"furniture","proImg":"https://ak1.ostkcdn.com/images/products/is/images/direct/a2ce3948b824dd52a63ce4d61f32d78ff6eca5c1/Middlebrook-Helbling-Round-Coffee-Table.jpg?imwidth=480&impolicy=medium","price":"13256","descreption":"Middlebrook Helbling Round Coffee Table","proName":"Coffee Tables","productID":"pro4"},

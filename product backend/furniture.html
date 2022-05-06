@@ -101,35 +101,14 @@
     <!-- navbar will be here -->
     <nav></nav>
     <div id="categ">
-        <h1>Categories</h1>
-        <select  id="furn">
-            <option value="--">Furniture</option>
-            <option value="Table">Coffee Table's</option>
-            <option value="Sofa">Sofa</option>
-            <option value="Dinning">Dinning</option>
-            <option value="Chair">Desk Chair</option>
+        <h1>Filter By Price</h1>
+        <select  id="furn" >
+            <option value="none">Select Price Range</option>
+            <option value="belo6000">Up to 6000/- </option>
+            <option value="up10000">Up to 10,000/-</option>
+            <option value="above10000">above 10,000/-</option>
         </select>
-        <select  id="decor">
-            <option value="--">Decor</option>
-            <option value="mirror">Wall Mirror's</option>
-            <option value="clock">Wall Clock's</option>
-            <option value="blind">Blinds&Shades</option>
-            <option value="canvas">Canvas Art</option>
-        </select>
-        <select  id="kitch">
-            <option value="--">Kitchen</option>
-            <option value="coffee">Coffee Maker</option>
-            <option value="blender">Blender</option>
-            <option value="fryer">Air Fryer</option>
-            <option value="mixer">Mixer</option>
-        </select>
-        <select  id="out">
-            <option value="--">Outdoor</option>
-            <option value="plant">Plant's</option>
-            <option value="cycles">Bycycle's</option>
-            <option value="skating">Skating skooter's</option>
-            <option value="rugs">OutDoor Rug's</option>
-        </select>
+      
         
     </div>
     <div id="container">
@@ -141,35 +120,40 @@
     var div = document.querySelector("#container");
     var addCartArr=JSON.parse(localStorage.getItem("cartList"))||[];
     var favListArr=JSON.parse(localStorage.getItem("favList"))||[];
-    proData.forEach(function(el){
-        if(el.categ==="furniture"||el.categ=="--"){
-            var box = document.createElement("div");
-            var image = document.createElement("img");
-            image.setAttribute("id","content")
-            image.setAttribute("src", el.proImg);
-            var name = document.createElement("h3");
-            name.innerText=el.proName;
-            var price = document.createElement("p")
-            price.innerText=`INR ${el.price} `;
-            var descreption = document.createElement("p");
-            descreption.innerText=el.descreption;
-            var btnDiv = document.createElement("div");
-            btnDiv.setAttribute("id","btnDiv");
-            var addCart = document.createElement("button")
-            addCart.innerText="Add To Cart";
-            addCart.addEventListener("click",function(){
-            addCartFun(el);
-            })
-            var favList = document.createElement("button")
-            favList.innerText="Fav";
-            favList.addEventListener("click",function(){
-                favListFun(el);
-            })
-            btnDiv.append(addCart,favList)
-            box.append(image,btnDiv,name,price,descreption)
-            div.append(box)
-        }
-        })
+    
+    displayData(proData)
+        function displayData(data){
+            document.querySelector("#container").innerHTML=""
+                data.forEach(function(el){
+                    if(el.categ==="furniture"||el.categ=="--"){
+                        var box = document.createElement("div");
+                        var image = document.createElement("img");
+                        image.setAttribute("id","content")
+                        image.setAttribute("src", el.proImg);
+                        var name = document.createElement("h3");
+                        name.innerText=el.proName;
+                        var price = document.createElement("p")
+                        price.innerText=`INR ${el.price} `;
+                        var descreption = document.createElement("p");
+                        descreption.innerText=el.descreption;
+                        var btnDiv = document.createElement("div");
+                        btnDiv.setAttribute("id","btnDiv");
+                        var addCart = document.createElement("button")
+                        addCart.innerText="Add To Cart";
+                        addCart.addEventListener("click",function(){
+                        addCartFun(el);
+                        })
+                        var favList = document.createElement("button")
+                        favList.innerText="Fav";
+                        favList.addEventListener("click",function(){
+                            favListFun(el);
+                        })
+                        btnDiv.append(addCart,favList)
+                        box.append(image,btnDiv,name,price,descreption)
+                        div.append(box)
+                    }
+                })
+            }        
         function addCartFun(el){
             addCartArr.push(el);
             localStorage.setItem("cartList",JSON.stringify(addCartArr));
@@ -178,4 +162,38 @@
             favListArr.push(el);
             localStorage.setItem("favList",JSON.stringify(favListArr));
         }
+
+        var selected = document.querySelector("#furn")
+            selected.addEventListener("change", function(){
+                filPrice(proData)
+            })
+   
+        function filPrice(data){
+            if(selected.value=="belo6000"){
+                var selected_Data = data.filter(function(ele){
+                    return Number(ele.price)<6000
+                })
+                console.log(selected_Data)
+                displayData(selected_Data) 
+            }
+            else if(selected.value=="up10000"){
+                var selected_Data = data.filter(function(ele){
+                    return Number(ele.price)<10000
+                })
+                console.log(selected_Data)
+                displayData(selected_Data) 
+            }
+            else if(selected.value=="above10000"){
+                var selected_Data = data.filter(function(ele){
+                    return Number(ele.price)>10000
+                })
+                console.log(selected_Data)
+                displayData(selected_Data) 
+            }
+            else if(selected.value=="none"){
+                displayData(proData)
+            }
+           
+        }
+
 </script>

@@ -29,7 +29,7 @@ var addCartArr = JSON.parse(localStorage.getItem("cartList")) || []
 
 var product = document.querySelector("#product")
 
-var checkoutArr = JSON.parse(localStorage.getItem("checkoutData")) || []
+var checkoutArr = []
 
 function promocode(){
     var promo_code = (document.querySelector("#promocode").value)

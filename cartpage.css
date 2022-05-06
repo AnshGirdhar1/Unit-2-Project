@@ -2,6 +2,7 @@
     padding: 0%;
     margin: 0%;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 .si{
@@ -9,6 +10,7 @@
     margin: auto;
     text-align: left;
     margin-bottom: 10px;
+    
 }
 
 .empty{
@@ -89,7 +91,7 @@ select{
     padding: 10px; 
     border: 1px solid rgb(207, 203, 203);
     position: fixed;
-    top: 70px;
+    top: 215px;
     max-width: 270px;
     width: 100%;
     box-sizing: inherit;
@@ -110,7 +112,7 @@ select{
     color: red;
 }
 
-img{
+.cart-item>div>img{
     max-height: 260px;
     max-width: 260px;
     min-height: 260px;
@@ -137,6 +139,7 @@ img{
     margin-top: 10px;
     border-radius: 5px;
     border: 0px;
+    cursor: pointer;
 }
 
 #promocode+button{
@@ -197,6 +200,8 @@ img{
 
 }
 
+
+
 @media all and (min-width: 100px) and (max-width: 450px){
 
     *{
@@ -245,3 +250,111 @@ img{
 
 
 }
+
+ /* for navabar */
+    #header {
+           width:95%;
+           display: flex;
+           margin:auto;
+           justify-content: space-between;
+           padding:25px 0 15px 0;
+           border-bottom: 1px solid rgb(194, 193, 193);
+       }
+
+       #logo img {
+           width:35px;
+           vertical-align: top;
+       }
+
+       #logo h2 {
+           font-size: 30px;
+           font-weight: 400;
+           display: inline-block;
+           margin-top:-5px;
+           margin-bottom:0;
+           color:#000;
+       }
+
+       #search-bar {
+           width:65%;
+       }
+
+       #search-bar input {
+           width:95%;
+           padding:10px;
+           border-top-left-radius: 5px;
+           border-bottom-left-radius: 5px;
+           background-color: #f9fafb;
+           border: 1px solid rgb(194, 193, 193);
+           margin:0;
+       }
+
+       #search-bar input:focus {
+           outline:none;
+       }
+
+       #search-bar input::placeholder {
+           font-family: 'poppins', sans-serif;
+       }
+
+       #search-bar i {
+           width:5%;
+           background-color: orangered;
+           padding:11px 0px;
+           text-align: center;
+           color:#fff;
+           vertical-align: middle;
+           margin-left:-6px;
+           cursor:pointer;
+           border-top-right-radius: 5px;
+           border-bottom-right-radius: 5px;
+       }
+
+        #menu ul {
+            width:100%;
+            margin:0;
+            padding:0;
+        }
+
+       #menu ul li {
+           display: inline-block;
+           padding-left:25px;
+           text-align: center;
+       }
+
+       #menu ul li a {
+           color: #020202;
+           text-decoration: none;
+       }
+
+       #menu ul li a i {
+           font-size: 25px;
+       }
+
+       #menu ul li a span {
+           font-size: 13px;
+           display: block;
+           text-decoration: none;
+       }
+
+       #product-pages {
+           width:100%;
+           display:flex;
+           justify-content: center;
+           padding:20px 0;
+       }
+
+       #product-pages ul li {
+           display: inline-block;
+           padding-right:40px;
+       }
+
+       #product-pages ul li a {
+           color:#000;
+           text-decoration: none;
+           font-weight: 400;
+       }
+
+       #product-pages ul li a:hover {
+           border-bottom: 3px solid orangered;
+       }

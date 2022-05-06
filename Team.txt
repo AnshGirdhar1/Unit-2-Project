@@ -1,8 +1,10 @@
-Team Unit-2 Project
+Team Unit-2 Project:-
 
-1) Ansh Girdhar
-2) Akshay Mulani
-3) Riya Negi
-4) Sumit Siwach
-5) Naveed Pasha
-6) Sukhmani Kaur
+      Name         |    Student ID's
+-------------------|-----------------
+1) Ansh Girdhar    |    fw18_0096
+2) Akshay Mulani   |    fp03_237
+3) Riya Negi       |    fp03_122
+4) Sumit Siwach    |    --
+5) Naveed Pasha    |    fp03_063
+6) Sukhmani Kaur   |    fw18_0196

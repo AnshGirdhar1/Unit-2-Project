@@ -5,102 +5,106 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/bb8a3557a3.js" crossorigin="anonymous"></script>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Decor</title>
     <style>
-        *{
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        /* h1{
-            margin-bottom: 80px;
-            text-align: center;
-            font-size: 60px;
 
-        } */
-       #container{
-           width: 80%;
-           /* border: 1px solid red; */
-           margin: 20%;
-           display: grid;
-           margin-top: 80px;
-           grid-template-columns: repeat(4,1fr);
-           grid-template-rows: repeat(3,350px);
-           gap: 20px;
-       }
-       #container>div{
-           /* width: 40%; */
-           border: 1px solid;
-           text-align: center;
-       }
-       #content{
-           width: 100%;
-       }
-       #btnDiv{
-           display: flex;
-           justify-content: space-between;
-           /* border: 1px solid; */
-           width: 100%;
-           /* height: 40px; */
-           align-items: center;
-           /* margin-top: -10px; */
-           top: -25px;
-           position: relative;
-           /* padding: 10px; */
-       }
-       button{
-           color: white;
-           background-color: red;
-           border: none;
-           padding: 3px;
-           border-radius: 5px;
-           /* position: absolute; */
-           align-items: flex-end;
-       }
-       button:hover{
-           border: 1px solid;
-           cursor: pointer;
-       }
-       #container h3{
-           font-size: 15px;
-       }
-       #container>div h3+p{
-           color: red;
-           font-size: 20px;
-           text-align: center;
-           font-weight: 600;
-       }
-       #categ{
-           /* text-align: start; */
-           /* background-color: grey; */
-           width: 18%;
-           position: fixed;
-           border: 1px solid;
-           height: 200px;
-           overflow: scroll;
-       }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #outer-box {
+            width:90%;
+            margin: auto;
+            padding:50px 0;
+        }
+
        #categ h1{
            margin-bottom: 10px;
-           /* text-align: start; */
        }
+
        select{
            padding: 5px 15px;
            margin-bottom: 12px;
+           font-family: 'Poppins', sans-serif;
        }
+
+       #container{
+           width: 100%;
+           display: grid;
+           margin-top: 80px;
+           grid-template-columns: repeat(3,1fr);
+           gap: 30px;
+       }
+
+        #container>div{
+           border: 1px solid rgb(164, 164, 164);
+           padding-bottom: 20px;
+       }
+
+       #container>div>h3 {
+           padding:10px 20px;
+           font-weight: 600;
+           font-size: 22px;
+       }
+
+       #container>div>span {
+           font-size: 18px;
+           font-weight: 500;
+           padding:10px 20px;
+       }
+
        #container>div p{
            color: grey;
-           font-size: 12px;
-           text-align: center;
-           width: 100%;
-           overflow: hidden;
+           font-size: 14px;
            margin-top: 10px;
+           padding:10px 20px;
        }
+
+       #container>div>#btnDiv {
+           width:100%;
+           margin:10px 20px;
+           
+       }
+
+       #container>div>#btnDiv>button {
+           background-color:orangered;
+           border: 0px;
+           color:#fff;
+           padding:10px 20px;  
+           font-size: 18px;
+           font-weight: 600;
+           font-family: 'Poppins', sans-serif;
+           cursor: pointer;
+        }
+
+        #container>div>#btnDiv>i {
+            color:rgb(227, 227, 227);
+            font-size: 30px;
+            padding-left:20px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
       
     </style>
 </head>
 <body>
     <!-- navbar will be here -->
     <nav></nav>
+    <div id="outer-box">
     <div id="categ">
         <h1>Filter By Price</h1>
         <select  id="furn" >
@@ -112,6 +116,7 @@
     </div>
     <div id="container">
     </div>
+</div>
 </body>
 </html>
 <script>
@@ -133,7 +138,7 @@
                     image.setAttribute("src", el.proImg);
                     var name = document.createElement("h3");
                     name.innerText=el.proName;
-                    var price = document.createElement("p")
+                    var price = document.createElement("span")
                     price.innerText=`INR ${el.price} `;
                     var descreption = document.createElement("p");
                     descreption.innerText=el.descreption;
@@ -144,14 +149,14 @@
                     addCart.addEventListener("click",function(){
                     addCartFun(el);
                     })
-                    var favList = document.createElement("button")
-                    favList.innerText="Fav";
+                    var favList = document.createElement("i")
+                    favList.setAttribute("class","fa-solid fa-heart");
                     favList.addEventListener("click",function(){
                         favListFun(el);
                     })
                     btnDiv.append(addCart,favList)
-                    box.append(image,btnDiv,name,price,descreption)
-                    div.append(box)
+                    box.append(image,name,price,descreption,btnDiv)
+                    document.querySelector("#container").append(box)
                 }
                 })
         }    

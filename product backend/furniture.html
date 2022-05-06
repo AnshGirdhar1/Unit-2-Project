@@ -190,9 +190,15 @@
                 })
             }        
         function addCartFun(el){
-            addCartArr.push(el);
-            localStorage.setItem("cartList",JSON.stringify(addCartArr));
-            favlist.style.color="orangered";
+            var filteredCartList = addCartArr.filter(function(item){
+                return el.productID == item.productID;
+            });
+            if(filteredCartList.length > 0){
+                alert("Item already added to cart. Please Check your cart once");
+            }else {
+                addCartArr.push(el);
+                localStorage.setItem("cartList",JSON.stringify(addCartArr));
+            }
         };
         function favListFun(el){
             var filteredFavlist = favListArr.filter(function(item){

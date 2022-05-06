@@ -27,6 +27,8 @@
 
 var addCartArr = JSON.parse(localStorage.getItem("cartList")) || []
 
+var dataArr=JSON.parse(localStorage.getItem("userData"));
+
 var product = document.querySelector("#product")
 
 var checkoutArr = []
@@ -161,13 +163,22 @@ var checkout = document.querySelector("#checkout")
         checkoutFun(addCartArr,total_Cart)
     })
 
+
+
 function checkoutFun(data,total_Cart){
+    if (dataArr==null){
+        window.location.href="../user signup signin/user.html"
+        
+    }
+    else{
     var obj = {}
     obj.cartItem = data
     obj.totalCartValue = total_Cart.innerText
     checkoutArr.push(obj)
     localStorage.setItem("checkoutData",JSON.stringify(checkoutArr));
     console.log(checkoutArr)
+    window.location.href="../payment page/paymentpage.html"
+    }
 }    
 
 function calculate(data){

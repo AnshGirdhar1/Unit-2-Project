@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourites</title>
+    <style>
+
+body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #outer-box {
+            width:90%;
+            margin: auto;
+            padding:50px 0;
+        }
+
+       #categ h1{
+           margin-bottom: 10px;
+       }
+
+       select{
+           padding: 5px 15px;
+           margin-bottom: 12px;
+           font-family: 'Poppins', sans-serif;
+       }
+
+       #container{
+           margin:auto;
+           width: 80%;
+           display: grid;
+           margin-top: 80px;
+           grid-template-columns: repeat(3,1fr);
+           gap: 30px;
+       }
+
+        #container>div{
+           /* border: 1px solid rgb(164, 164, 164); */
+           box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+           padding-bottom: 20px;
+       }
+
+       #container>div>h3 {
+           padding:10px 20px;
+           font-weight: 600;
+           font-size: 22px;
+       }
+
+       #container>div>span {
+           font-size: 18px;
+           font-weight: 500;
+           padding:10px 20px;
+       }
+
+       #container>div p{
+           /* color: grey; */
+           font-size: 14px;
+           margin-top: 10px;
+           padding:10px 20px;
+       }
+
+       #container>div>#btnDiv {
+           width:100%;
+           margin:10px 20px;
+           
+       }
+
+       #container>div>#btnDiv>button {
+        background-color:orangered;
+           border: 0px;
+           color:#fff;
+           padding:10px 20px;  
+           font-size: 18px;
+           font-weight: 600;
+           font-family: 'Poppins', sans-serif;
+           cursor: pointer;
+           margin:20px;
+         
+        }
+        #container>div>#btnDiv>button:hover{
+            color:black;
+        }
+
+        #container>div>#btnDiv>i {
+            color:rgb(227, 227, 227);
+            font-size: 30px;
+            padding-left:20px;
+            vertical-align: middle;
+            cursor: pointer;
+           
+            
+        }
+        h3{
+            text-align: center;
+        }
+      
+        h3+p{
+            text-align: center;
+            font-weight: bolder;
+            color: black;
+        }
+        h1{
+            text-align: center;
+            margin-top:30px;
+            color:orangered;
+        }
+    
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Favourites</h1>
+    <div id="container"></div>
+   
+</body>
+</html>
+<script>
+//  var addCartArr=JSON.parse(localStorage.getItem("cartList"))||[];
+    var favListArr=JSON.parse(localStorage.getItem("favList")) || []
+    console.log(favListArr)
+  
+    var addCartArr=JSON.parse(localStorage.getItem("cartList"))||[];
+    // localStorage.setItem("productData",JSON.stringify(productData))
+    // document.querySelector("#form").reset();
+    // displayData(productData)
+    // var proData = JSON.parse(localStorage.getItem("productData"));
+    
+    // var addCartArr=JSON.parse(localStorage.getItem("cartList"))||[];
+    // var favListArr=JSON.parse(localStorage.getItem("favList"))||[];
+    
+
+    favListArr.forEach(function(el, index){
+        
+            var box = document.createElement("div");
+            var image = document.createElement("img");
+            image.setAttribute("id","content")
+            image.setAttribute("src", el.proImg);
+
+            var name = document.createElement("h3");
+            name.innerText=el.proName;
+
+            var price = document.createElement("p")
+            price.innerText=`INR ${el.price} `;
+
+            var descreption = document.createElement("p");
+            descreption.innerText=el.descreption;
+
+            var btnDiv = document.createElement("div");
+            btnDiv.setAttribute("id","btnDiv");
+
+            var addCart = document.createElement("button")
+            addCart.innerText="Add To Cart";
+            addCart.addEventListener("click",function(){
+             addCartFun(el);
+            })
+
+            var Remove = document.createElement("button")
+            Remove.innerText="Remove";
+            Remove.addEventListener("click",function(){
+                RemoveItem(el,index);
+            })
+
+            btnDiv.append(Remove,addCart)
+            box.append(image,name,price,descreption,btnDiv)
+            document.querySelector("#container").append(box)
+        
+        })
+         
+        function RemoveItem(el,index) {
+            favListArr.splice(index,1);
+            localStorage.setItem("favList", JSON.stringify(favListArr))
+            window.location.reload();
+        }
+
+        function addCartFun(el){
+           var filteredList =  addCartArr.filter(function(item){
+                return el.productID == item.productID;
+            });
+            if(filteredList.length > 0){
+                alert("Item already added to cart");
+            } else {
+                addCartArr.push(el);
+            }
+            localStorage.setItem("cartList",JSON.stringify(addCartArr));
+        }
+
+
+  
+</script>

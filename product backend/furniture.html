@@ -26,6 +26,113 @@
             height: auto;
         }
 
+             #header {
+           width:95%;
+           display: flex;
+           margin:auto;
+           justify-content: space-between;
+           padding:25px 0 15px 0;
+           border-bottom: 1px solid rgb(194, 193, 193);
+       }
+
+       #logo img {
+           width:35px;
+           vertical-align: top;
+       }
+
+       #logo h2 {
+           font-size: 30px;
+           font-weight: 400;
+           display: inline-block;
+           margin-top:-5px;
+           margin-bottom:0;
+           color:#000;
+       }
+
+       #search-bar {
+           width:65%;
+       }
+
+       #search-bar input {
+           width:95%;
+           padding:10px;
+           border-top-left-radius: 5px;
+           border-bottom-left-radius: 5px;
+           background-color: #f9fafb;
+           border: 1px solid rgb(194, 193, 193);
+           margin:0;
+       }
+
+       #search-bar input:focus {
+           outline:none;
+       }
+
+       #search-bar input::placeholder {
+           font-family: 'poppins', sans-serif;
+       }
+
+       #search-bar i {
+           width:5%;
+           background-color: orangered;
+           padding:11px 0px;
+           text-align: center;
+           color:#fff;
+           vertical-align: middle;
+           margin-left:-6px;
+           cursor:pointer;
+           border-top-right-radius: 5px;
+           border-bottom-right-radius: 5px;
+       }
+
+        #menu ul {
+            width:100%;
+            margin:0;
+            padding:0;
+        }
+
+       #menu ul li {
+           display: inline-block;
+           padding-left:25px;
+           text-align: center;
+       }
+
+       #menu ul li a {
+           color: #020202;
+           text-decoration: none;
+       }
+
+       #menu ul li a i {
+           font-size: 25px;
+       }
+
+       #menu ul li a span {
+           font-size: 13px;
+           display: block;
+           text-decoration: none;
+       }
+
+       #product-pages {
+           width:100%;
+           display:flex;
+           justify-content: center;
+           padding:20px 0;
+       }
+
+       #product-pages ul li {
+           display: inline-block;
+           padding-right:40px;
+       }
+
+       #product-pages ul li a {
+           color:#000;
+           text-decoration: none;
+           font-weight: 400;
+       }
+
+       #product-pages ul li a:hover {
+           border-bottom: 3px solid orangered;
+       }
+
         #outer-box {
             width:90%;
             margin: auto;
@@ -103,7 +210,40 @@
 </head>
 <body>
     <!-- navbar will be here -->
-    <nav></nav>
+     <div id="header">
+        <a href="../index.html"><div id="logo">
+        <img src="https://lh3.googleusercontent.com/r1RyQV0Tva6dHjjLQ4xikDyc2uU9OMXxUmnvDM3edGwfBI6tZvDC9XGltno9pH-jkw" alt="img"/>
+        <h2>overstock</h2>
+        </div></a>
+        <div id="search-bar">
+            <input type="text" placeholder="Search"/>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="../user signup signin/user.html">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Account</span>
+                </a></li>
+                <li><a href="../favourites/favouries.html">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Lists</span>
+                </a></li>
+                <li><a href="../cartpage.html">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                    <span>Cart</span>
+                </a></li>
+            </ul>
+        </div>  
+    </div>
+    <div id="product-pages">
+        <ul>
+            <li><a href="../product backend/furniture.html">Furniture</a></li>
+            <li><a href="../product backend/decor.html">Decor</a></li>
+            <li><a href="../product backend/kitchen.html">Kitchen</a></li>
+            <li><a href="../product backend/outdoor.html">Outdoor</a></li>
+        </ul>
+    </div>
     <div id="outer-box">
     <div id="categ">
         <h1>Filter By Price</h1>

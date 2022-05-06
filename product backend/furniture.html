@@ -180,6 +180,7 @@
                         var favList = document.createElement("i")
                         favList.setAttribute("class","fa-solid fa-heart");
                         favList.addEventListener("click",function(){
+                            favList.style.color="orangered";
                             favListFun(el);
                         })
                         btnDiv.append(addCart,favList)
@@ -189,12 +190,27 @@
                 })
             }        
         function addCartFun(el){
-            addCartArr.push(el);
-            localStorage.setItem("cartList",JSON.stringify(addCartArr));
+            var filteredCartList = addCartArr.filter(function(item){
+                return el.productID == item.productID;
+            });
+            if(filteredCartList.length > 0){
+                alert("Item already added to cart. Please Check your cart once");
+            }else {
+                addCartArr.push(el);
+                localStorage.setItem("cartList",JSON.stringify(addCartArr));
+            }
         };
         function favListFun(el){
+            var filteredFavlist = favListArr.filter(function(item){
+                return el.productID == item.productID;
+            });
+            if(filteredFavlist.length > 0){
+                alert("item already added");
+            } else {
             favListArr.push(el);
+            document.querySelector("i")
             localStorage.setItem("favList",JSON.stringify(favListArr));
+            }
         }
 
         var selected = document.querySelector("#furn")

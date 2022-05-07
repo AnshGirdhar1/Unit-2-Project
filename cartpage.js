@@ -167,7 +167,7 @@ var checkout = document.querySelector("#checkout")
 
 function checkoutFun(data,total_Cart){
     if (dataArr==null){
-        window.location.href="../user signup signin/user.html"
+        window.location.href="./user signup signin/user.html"
         
     }
     else{
@@ -177,7 +177,7 @@ function checkoutFun(data,total_Cart){
     checkoutArr.push(obj)
     localStorage.setItem("checkoutData",JSON.stringify(checkoutArr));
     console.log(checkoutArr)
-    window.location.href="../payment page/paymentpage.html"
+    window.location.href="./payment page/paymentpage.html"
     }
 }    
 

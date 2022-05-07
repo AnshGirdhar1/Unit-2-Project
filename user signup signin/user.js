@@ -34,7 +34,7 @@ var dataArr=JSON.parse(localStorage.getItem("userData"));
 
 
   function onclickdo(){
-    window.location.href="google.com";
+    window.location.href="../index.html";
   }
 
 
@@ -53,7 +53,7 @@ var dataArr=JSON.parse(localStorage.getItem("userData"));
         }else if(userData.email===data.email && userData.pass===data.pass){
             alert("Login Successful")
             // link the home page here
-            window.location.href="#"
+            window.location.href="../cartpage.html";
         }else if(userData.email!==data.email){
             alert("User Does Not Exist")
         }else if(userData.pass!==data.pass){

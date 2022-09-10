@@ -26,4 +26,4 @@ Our Project is a Clone of overStock.com which is a online Shopping site. We have
 Javascript, HTML, CSS...
 
 ## ***Experience The Website Now***
-[OverStock Cloned](https://heroic-blini-732762.netlify.app/)
+[OverStock Cloned](https://famous-kitten-13c790.netlify.app)

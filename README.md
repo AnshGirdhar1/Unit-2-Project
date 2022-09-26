@@ -3,6 +3,9 @@
 
 Our Project is a Clone of overStock.com which is a online Shopping site. We have put our heart and soul to make it look & work as original as possible. ***So, Enjoy this short tour of our website***
 
+## Project Description : 
+This is a sample application that demonstrates an E-commerce website using HTML, CSS and Javascript. We have used local storage to store the products. User can click on any product to get more information including pricing, reviews and rating. User can filter products based on category of the product and sort products based on the pricing. User can products to cart and also save to wishlist to add them later 
+
 ## **Website Overview-:**
  ![OverStock HomePage](https://ye5tydp7g73esyga3o4afodg-wpengine.netdna-ssl.com/wp-content/uploads/overstock-black-friday-online.jpg)
   1. ### 📜***Pages***

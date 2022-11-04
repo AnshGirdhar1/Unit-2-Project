@@ -12,7 +12,7 @@ Our Project is a Clone of overStock.com which is a online Shopping site. We have
   - **Products Page's**
   ##### The Products Page of the Website have many *functionalities like filter's (filter by price) Button's (Add to cart, favourites) and the Product's*
   - SignUp/SignIn
-  ##### The SignUp and SignIn Both are in the same page you will be seeing many functionalities there *While creating in account or While SignIn*, **We have made everything easy for The User, You wont be dissapointed with the UX**
+  ##### The SignUp and SignIn Both are in the same page you will be seeing many functionalities there *While creating in account or While SignIn*, **We have made everything easy for The User, You wont be dissapointed with the UX & UI**
 
 ### 🧑‍💻**Meet The Team-:**
 1. [Sukhmani Kaur](https://github.com/Sukhmani-Kaur1)
